@@ -174,7 +174,7 @@ sub element {
 sub has {
     my $self = shift;
 
-    my @has = map { exists $self->{'elements'}->{ $_ } } @_;
+    my @has = map { exists $self->{'elements'}->{ _strval($_) } } @_;
 
     return wantarray ? @has : @_ > 1 ? grep { $_ } @has : $has[0];
 }
